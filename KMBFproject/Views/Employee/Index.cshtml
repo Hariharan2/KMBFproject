@@ -1,0 +1,33 @@
+﻿<div>
+<a class="btn btn-primary" asp-controller="Employee" asp-action="create">Add Employee</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOJ</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact_Number</th>
+        </tr>
+    </thead>
+
+        <tbody>
+            <tr>
+            @foreach (var item in Model)
+            {
+                <th>@item.ID</th>
+                <td>@item.Name</td>
+                <td>@item.DOJ</td>
+                <td>@item.Designation</td>
+                <td>@item.Address</td>
+                <td>@item.ContactNumber</td>
+            }
+            </tr>
+        </tbody>
+
+
+</table>

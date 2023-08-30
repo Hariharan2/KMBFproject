@@ -1,0 +1,66 @@
+﻿<html>
+    <head>
+        <script>
+        function formvalid() {
+            var vaildpass = document.getElementById("pass").value;
+
+            if (vaildpass.length <= 8 || vaildpass.length >= 20) {
+                document.getElementById("vaild-pass").innerHTML = "Minimum 8 characters";
+                return false;
+            } else {
+                document.getElementById("vaild-pass").innerHTML = "";
+            }
+        }
+
+        function show() {
+            var x = document.getElementById("pass");
+            if (x.type === "password") {
+                x.type = "text";
+                document.getElementById("showimg").src =
+                    "https://static.thenounproject.com/png/777494-200.png";
+            } else {
+                x.type = "password";
+                document.getElementById("showimg").src =
+                    "https://cdn2.iconfinder.com/data/icons/basic-ui-interface-v-2/32/hide-512.png";
+            }
+        }
+
+
+    </script>
+    </head>
+    <body>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-title text-center border-bottom-3">
+                        <h2 class="p-3">Login</h2>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-4">
+                                <label for="username" class="form-label">USERNAME</label>
+                                <input type="text" class="form-control" id="username" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label">PASSWORD</label>
+                                    <input type="password" class="form-control" oninput="return formvalid() id="password" />
+                            </div>
+                            <div class="mb-4">
+                            <div class="d-grid">
+                                        <button asp-controller="Home" asp-action="Index" type="submit" onclick="show()" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+</htmt>
