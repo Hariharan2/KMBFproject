@@ -1,5 +1,7 @@
 ﻿using KMBFproject.Controllers;
 using Microsoft.EntityFrameworkCore;
+using KMBFproject.Models;
+
 
 namespace KMBFproject.Data
 {
@@ -7,7 +9,8 @@ namespace KMBFproject.Data
     {
         public EmployeeDbContext(DbContextOptions<EmployeeDbContext> option) : base(option)
         { }
-            public DbSet<EmployeeController> Employees { get; set; }
+            public DbSet<Employee>Employees{ get; set; }
+
     }
     }
 

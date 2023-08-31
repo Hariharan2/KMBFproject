@@ -2,31 +2,34 @@
 
 <div class="row">
     <div class="col-12">
-        <form asp method="post">
+        <form  method="post">
 
-            <div class="form-group">
+            @* <div class="form-group">
                 <label>ID</label>
-                <input type="number" asp-for="@Model.ID" />
-            </div>
+                <input type="number" asp-for=@Model.ID/>
+            </div> *@
             <div class="form-group">
                 <label> Name</label>
-                <input type="text" asp-for="@Model.Name" />
+                <input type="text" asp-for=@Model.Name/>
             </div>
             <div class="form-group">
                 <label>DOJ</label>
-                <input type="number" asp-for=" @Model.DOJ" />
+                <input type="date" asp-for=@Model.DOJ/>
             </div>
             <div class="form-group">
                 <label> Designation </label>
-                <input type="text" asp-for="@Model.Designation" />
+                <input type="text" asp-for=@Model.Designation/>
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <input type="text" asp-for="@Model.Address" />
+                <input type="text" asp-for=@Model.Address/>
             </div>
-
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="number" asp-for=@Model.Contact_Number/>
+            </div>
             
-            <button type="submit" class="btn btn-primary">Add Employee</button>
+            <button type="submit" asp-controller="Employee" asp-action="Index" class="btn btn-primary">Add Employee</button>
 
         </form>
 

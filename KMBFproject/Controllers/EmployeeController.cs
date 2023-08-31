@@ -1,4 +1,5 @@
 ﻿using KMBFproject.Models;
+using KMBFproject.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
 
@@ -6,9 +7,9 @@ namespace KMBFproject.Controllers
 {
     public class EmployeeController : Controller
     {
-        Employee _context;
+        private readonly EmployeeDbContext _context;
 
-        public EmployeeController(Employee context) 
+        public EmployeeController(EmployeeDbContext context) 
         { 
         _context = context;
         }
@@ -16,23 +17,25 @@ namespace KMBFproject.Controllers
         public IActionResult Index()
         {
             var employee =new Employee();
-            List<Employee> Employeelist = _context.Employee.ToList();
-            return View(Employeelist);
+             List<Employee> Employeelist = _context.Employees.ToList();
+                return View(Employeelist);
         }
         [HttpGet]
         public IActionResult create() { 
             return View();
-        
-        }
-        [HttpPost]
-        public IActionResult create(Employee employee) {
-            if(ModelState.IsValid) {
-                _context.Employee.Add(employee);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult create (Employee employee) {
+            if(ModelState.IsValid) {
+                _context.Add(employee);
+                _context.SaveChanges();
+                return View();
+            }
+            
+            return RedirectToAction("Index");
         }
         
     }

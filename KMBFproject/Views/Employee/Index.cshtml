@@ -16,17 +16,19 @@
     </thead>
 
         <tbody>
-            <tr>
+       
             @foreach (var item in Model)
             {
+                <tr>
                 <th>@item.ID</th>
                 <td>@item.Name</td>
                 <td>@item.DOJ</td>
                 <td>@item.Designation</td>
                 <td>@item.Address</td>
-                <td>@item.ContactNumber</td>
-            }
+                <td>@item.Contact_Number</td>
             </tr>
+            }
+            
         </tbody>
 
 
